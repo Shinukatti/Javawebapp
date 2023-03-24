@@ -1,5 +1,10 @@
 pipeline {
 agent any
+  
+  withEnv(['PATH+MAVEN=/path/to/maven/bin']) {
+    sh 'mvn clean install'
+}
+
 	stages {
 		stage('checkoutscm') {
 			steps{
